@@ -24,5 +24,5 @@ var observer = new IntersectionObserver((elements, observer) => {
 }, options);
 
 target.forEach (ele => {
-    observer.observe(ele);              // Elements are observed using this method.
+    observer.observe(ele);              // Elements are observed using this method..
 })
