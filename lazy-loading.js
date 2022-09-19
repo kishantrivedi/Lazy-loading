@@ -13,7 +13,7 @@ const options = {
 // Creating the observer
 var observer = new IntersectionObserver((elements, observer) => {
     elements.forEach((element) => {
-    if (element.isIntersecting) {                       // Checking if the element is intersecting or not.
+    if (element.isIntersecting) {                            // Checking if the element is intersecting or not.
         var img = element.target;
         if (img.classList.contains("lazyBackground")) {
             path = img.getAttribute('data-src');
@@ -22,15 +22,30 @@ var observer = new IntersectionObserver((elements, observer) => {
         if (img.classList.contains("lazy")) {
             img.classList.remove("lazy");
             img.setAttribute('src', img.getAttribute('data-src'));
-            img.parentNode.classList.remove('preloading');
         };
-        img.classList.add('animate-img');
-        img.removeAttribute('data-src');
-        observer.unobserve(img);                   // This will stop observing the element (image) after it is loaded.
+        if (!img.complete) {                                 // Checking if the image is completely loaded or not.
+            img.addEventListener('load', lazyImageLoad, false);
+            img.addEventListener('error', lazyImageError, false);
+        }
+        else {
+            lazyImageLoad()
+            console.log("We are here!")
+        }
+        function lazyImageLoad(e) {                          // If image is loaded, this function will be called.
+            img.parentNode.classList.remove('preloader');
+            img.classList.add('animate-img');
+            img.removeAttribute('data-src');
+        }
+        function lazyImageError(e) {                         // If there is an error loading the image, this function will be called.
+            var parent = e.currentTarget.parentNode;
+            parent.classList.remove('preloader');
+            parent.classList.add('ImageError');
+        }
+        observer.unobserve(img);                             // Elements are unobserved using this method.
         }
     });
   }, options);
 
   target.forEach (ele => {
-  observer.observe(ele);                     // Elements are observed using this method.
+  observer.observe(ele);                                      // Elements are observed using this method.
 })

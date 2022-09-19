@@ -9,36 +9,42 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <style>
+
+    .img-height {
+        height:500px;
+    }
     .animate-img {
-        /* transform:scale(1);
-        transition:background 0.5s, opacity 0.5s, transform 0.5s; */
         animation: example 1.5s;
     }
     @keyframes example {
         from {transform: translatey(+10%); opacity: 0;}
         to {transform: translatey(0%); opacity: 1;}
     }
-    /* .preloading {
-        opacity:0;
-        transform:scale(0);
-        transition:none;
-    } */
-    
-    .row.justify-content-md-center.mt-4.my-4.p-3.preloading:before, .col-md-4.preloading:before, .card.mt-4.preloading:before, .col-md-3.preloading:before, .col-md-8.preloading:before {
-        content:"";
-        position:absolute;
-        width:10vh;
-        height:10vh;
-        padding-top:2%;
-        left:50%;
-        opacity:1;
-        margin-top:13% ;
-        transform:translate(-50%,-50%);
-        transition:transform 0.5s, opacity 0.5s;
-        border:0.5em solid;
+
+    .preloader, .ImageError {
+        position: relative;
+    }
+    .preloader::after {
+        content: "";
+        width: 70px; 
+        overflow: auto; 
+        position: absolute; 
+        height: 70px;
+        top:50%;
+        border:0.3em solid;
         border-color:#0484 #0488;
         border-radius:50%;
         animation:spin 1s linear infinite;
+        left: 50%;
+    }
+
+    .ImageError::after {
+        content: "Error loading image";
+        overflow: auto; 
+        position: absolute; 
+        height: 70px;
+        top:50%;
+        left: 45%;
     }
 
     @keyframes spin {
@@ -97,7 +103,7 @@
             </div>
         </div>
         <div class="row justify-content-md-center mt-4">
-            <div class="col-lg-10">
+            <div class="col-lg-12">
                 <div class="h-100 p-5 bg-light border rounded-3 text-center">
                     <h2>Jumbotron</h2>
                     <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
@@ -106,7 +112,7 @@
             </div>
         </div>
         <div class="row justify-content-md-center mt-4">
-            <div class="col-lg-10">
+            <div class="col-lg-12">
                 <div class="h-100 p-5 bg-light border rounded-3 text-center bg-dark text-light" style="background-image: url('https://images.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg?auto=compress&cs=tinysrgb&w=800');">
                     <h2>Jumbotron</h2>
                     <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
@@ -115,7 +121,7 @@
             </div>
         </div>
         <div class="row justify-content-md-center mt-4">
-            <div class="col-lg-10">
+            <div class="col-lg-12">
                 <div class="h-100 p-5 bg-light border rounded-3 text-center lazyBackground" data-src='https://images.pexels.com/photos/459301/pexels-photo-459301.jpeg?auto=compress&cs=tinysrgb&w=800'>
                     <h2>Jumbotron</h2>
                     <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
@@ -124,12 +130,12 @@
             </div>
         </div>
         <div class="row mt-4">
-            <div class="container bg-dark">
-                <div class="row justify-content-md-center mt-4 my-4 p-3 preloading">
-                    <img style="height: 400px; width: 80%;" data-src="https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
+            <div class="container" >
+                <div class="row justify-content-md-center mt-4 my-4 p-3 preloader" style="height:400px;">
+                    <img style="height: 100%; width: 100%;" data-src="https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
                 </div>
-                <div class="row justify-content-md-center mt-4 my-4 p-3 preloading">
-                    <img style="height: 400px; width: 80%;" data-src="https://images.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
+                <div class="row justify-content-md-center mt-4 my-4 p-3 preloader" style="height:400px;">
+                    <img style="height: 100%; width: 100%;" data-src="https://images.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
                 </div>
             </div>
         </div>
@@ -158,20 +164,20 @@
             </div>
         </div>
         <div class="row justify-content-md-center mt-4">
-            <div class="col-md-4 preloading">
-                <img style="height: 400px; width: 80%;"  data-src="https://images.pexels.com/photos/719396/pexels-photo-719396.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
+            <div class="col-md-4 preloader" style="height:400px;">
+                <img style="height: 100%; width: 100%;"  data-src="https://images.pexels.com/photos/719396/pexels-photo-719396.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
             </div>
-            <div class="col-md-4 preloading">
-                <img style="height: 400px; width: 80%;" data-src="https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
-            </div>
-        </div>
-        <div class="row justify-content-md-center mt-4">
-            <div class="col-md-8 preloading">
-                <img style="height: 400px; width: 90%;" data-src="https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
+            <div class="col-md-4 preloader" style="height:400px;">
+                <img style="height: 100%; width: 100%;" data-src="https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
             </div>
         </div>
         <div class="row justify-content-md-center mt-4">
-            <div class="col-lg-10">
+            <div class="col-md-8 preloader" style="height:400px">
+                <img style="height: 100%; width: 100%;" data-src="https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
+            </div>
+        </div>
+        <div class="row justify-content-md-center mt-4">
+            <div class="col-lg-12">
                 <div class="h-100 p-5 bg-light border rounded-3 text-center mt-4 lazyBackground" data-src='https://images.pexels.com/photos/1590511/pexels-photo-1590511.jpeg?auto=compress&cs=tinysrgb&w=800'>
                     <h2>Jumbotron</h2>
                     <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
@@ -180,9 +186,11 @@
             </div>
         </div>
         <div class="row justify-content-md-center mt-4">
-            <div class="col-md-4">
-                <div class="card mt-4 preloading" style="width: 18rem;">
-                    <img data-src="https://images.pexels.com/photos/45853/grey-crowned-crane-bird-crane-animal-45853.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="card-img-top lazy" alt="...">
+            <div class="col-md-6">
+                <div class="card mt-4">
+                    <div class="preloader" style="height: auto !important">
+                        <img data-src="https://images.pexels.com/photos/45853/grey-crowned-crane-bird-crane-animal-45853.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="card-img-top lazy" alt="...">
+                    </div>
                     <div class="card-body">
                       <h5 class="card-title">Card title</h5>
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -190,33 +198,36 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="col-md-4">
-                    <div class="card mt-4 preloading" style="width: 18rem;">
+            <div class="col-md-6">
+                <div class="card mt-4">
+                    <div class="preloader" style="height: auto !important" >
                         <img data-src="https://images.pexels.com/photos/45853/grey-crowned-crane-bird-crane-animal-45853.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="card-img-top lazy" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
                     </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
         
         <div class="row justify-content-md-center mt-4">
-            <div class="col-md-3 preloading">
-                <img style="height: 200px;" data-src="https://images.pexels.com/photos/459301/pexels-photo-459301.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
+            <div class="col-md-3 preloader" style="height: auto !important">
+                <img style="height:100%;" data-src="https://images.pexels.com/photos/36762/scarlet-honeyeater-bird-red-feathers.jpg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
             </div>
-            <div class="col-md-3 preloading">
-                <img style="height: 200px;" data-src="https://images.pexels.com/photos/36762/scarlet-honeyeater-bird-red-feathers.jpg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
+            <div class="col-md-3 preloader" style="height: auto !important">
+                <img style="height:100%;" data-src="https://images.pexels.com/photos/33045/lion-wild-africa-african.jpg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
             </div>
-            <div class="col-md-3 preloading">
-                <img style="height: 200px;" data-src="https://images.pexels.com/photos/33045/lion-wild-africa-african.jpg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
+            <div class="col-md-3 preloader" style="height: 200px">
+                <img style="height:100%;" data-src="https://images.pexels.com/photos/1590511/pexels-photo-1590511.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
             </div>
-            <div class="col-md-3 preloading">
-                <img style="height: 200px;" data-src="https://images.pexels.com/photos/1590511/pexels-photo-1590511.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
-            </div>
+        </div>
+
+        <div style="height: 300px; width:100%; margin-top: 3rem; background-color: lightblue;
+                    justify-content: center; align-items: center; display: flex;">
+            <div class="h3">Hello! End of lazy loading</div>
         </div>
       </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
