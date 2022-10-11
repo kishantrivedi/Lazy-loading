@@ -6,101 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lazy Loading Test</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <style>
 
-    .img-height {
-        height:500px;
+/* @keyframes spin {
+    0% {
+        transform:translate(-50%,-50%) rotate(0deg) scale(1);
     }
-    .animate-img {
-        animation: example 1.5s;
+    50% {
+        transform:translate(-50%,-50%) rotate(180deg) scale(0.7);
     }
-    @keyframes example {
-        from {transform: translatey(+10%); opacity: 0;}
-        to {transform: translatey(0%); opacity: 1;}
+    100% {
+        transform:translate(-50%,-50%) rotate(360deg) scale(1);
     }
-
-    .preloader, .ImageError {
-        position: relative;
-    }
-
-    .preloader::after {
-        content: "";
-        width: 50px; 
-        overflow: auto; 
-        position: absolute; 
-
-        top:50%;
-
-        left: 50%;
-        --c1: #F77825;
-        --c2: #D3CE3D;
-        --c3: #60B99A;
-        --c4: #554236;
-        aspect-ratio: 8/5;
-        --_g: no-repeat radial-gradient(#000 68%,#0000 71%);
-        -webkit-mask: var(--_g),var(--_g),var(--_g);
-        -webkit-mask-size: 25% 40%;
-        background: 
-            conic-gradient(var(--c1) 50%,var(--c2) 0) no-repeat,
-            conic-gradient(var(--c3) 50%,var(--c4) 0) no-repeat;
-        background-size: 200% 50%;
-        animation: 
-            back 4s infinite steps(1),
-            load 2s infinite;
-    }
-
-    @keyframes load {
-        0%    {-webkit-mask-position: 0% 0%  ,50% 0%  ,100% 0%  }
-        16.67%{-webkit-mask-position: 0% 100%,50% 0%  ,100% 0%  }
-        33.33%{-webkit-mask-position: 0% 100%,50% 100%,100% 0%  }
-        50%   {-webkit-mask-position: 0% 100%,50% 100%,100% 100%}
-        66.67%{-webkit-mask-position: 0% 0%  ,50% 100%,100% 100%}
-        83.33%{-webkit-mask-position: 0% 0%  ,50% 0%  ,100% 100%}
-        100%  {-webkit-mask-position: 0% 0%  ,50% 0%  ,100% 0%  }
-    }
-    @keyframes back {
-        0%,
-        100%{background-position: 0%   0%,0%   100%}
-        25% {background-position: 100% 0%,0%   100%}
-        50% {background-position: 100% 0%,100% 100%}
-        75% {background-position: 0%   0%,100% 100%}
-    }
-    /* .preloader::after {
-        content: "";
-        width: 70px; 
-        overflow: auto; 
-        position: absolute; 
-        height: 70px;
-        top:50%;
-        border:0.3em solid;
-        border-color:#0484 #0488;
-        border-radius:50%;
-        animation:spin 1s linear infinite;
-        left: 50%;
-    } */
-
-    .ImageError::after {
-        content: "Error loading image";
-        overflow: auto; 
-        position: absolute; 
-        height: 70px;
-        top:50%;
-        left: 45%;
-    }
-
-    @keyframes spin {
-        0% {
-            transform:translate(-50%,-50%) rotate(0deg) scale(1);
-        }
-        50% {
-            transform:translate(-50%,-50%) rotate(180deg) scale(0.7);
-        }
-        100% {
-            transform:translate(-50%,-50%) rotate(360deg) scale(1);
-        }
-    }
+} */
+/* .preloader::after {
+    content: "";
+    width: 70px; 
+    overflow: auto; 
+    position: absolute; 
+    height: 70px;
+    top:50%;
+    border:0.3em solid;
+    border-color:#0484 #0488;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+    left: 50%;
+} */
 </style>
 </head>
 <body>
@@ -174,10 +108,10 @@
         </div>
         <div class="row mt-4">
             <div class="container" >
-                <div class="row justify-content-md-center mt-4 my-4 p-3 preloader" style="height:400px;">
+                <div class="row justify-content-md-center mt-4 my-4 p-3 preloader1" style="height:400px;">
                     <img style="height: 100%; width: 100%;" data-src="https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
                 </div>
-                <div class="row justify-content-md-center mt-4 my-4 p-3 preloader" style="height:400px;">
+                <div class="row justify-content-md-center mt-4 my-4 p-3 preloader2" style="height:400px;">
                     <img style="height: 100%; width: 100%;" data-src="https://images.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
                 </div>
             </div>
@@ -207,15 +141,15 @@
             </div>
         </div>
         <div class="row justify-content-md-center mt-4">
-            <div class="col-md-4 preloader" style="height:400px;">
+            <div class="col-md-4 preloader3" style="height:400px;">
                 <img style="height: 100%; width: 100%;"  data-src="https://images.pexels.com/photos/719396/pexels-photo-719396.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
             </div>
-            <div class="col-md-4 preloader" style="height:400px;">
+            <div class="col-md-4 preloader4" style="height:400px;">
                 <img style="height: 100%; width: 100%;" data-src="https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
             </div>
         </div>
         <div class="row justify-content-md-center mt-4">
-            <div class="col-md-8 preloader" style="height:400px">
+            <div class="col-md-8 preloader5" style="height:400px">
                 <img style="height: 100%; width: 100%;" data-src="https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
             </div>
         </div>
@@ -231,7 +165,7 @@
         <div class="row justify-content-md-center mt-4">
             <div class="col-md-6">
                 <div class="card mt-4">
-                    <div class="preloader" style="height: auto !important">
+                    <div class="preloader6" style="height: auto !important">
                         <img data-src="https://images.pexels.com/photos/45853/grey-crowned-crane-bird-crane-animal-45853.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="card-img-top lazy" alt="...">
                     </div>
                     <div class="card-body">
@@ -243,7 +177,7 @@
             </div>
             <div class="col-md-6">
                 <div class="card mt-4">
-                    <div class="preloader" style="height: auto !important" >
+                    <div class="preloader7" style="height: auto !important" >
                         <img data-src="https://images.pexels.com/photos/45853/grey-crowned-crane-bird-crane-animal-45853.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="card-img-top lazy" alt="...">
                     </div>
                     <div class="card-body">
@@ -257,13 +191,13 @@
         </div>
         
         <div class="row justify-content-md-center mt-4">
-            <div class="col-md-3 preloader" style="height: auto !important">
+            <div class="col-md-3 preloader8" style="height: 200px !important">
                 <img style="height:100%;" data-src="https://images.pexels.com/photos/36762/scarlet-honeyeater-bird-red-feathers.jpg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
             </div>
-            <div class="col-md-3 preloader" style="height: auto !important">
+            <div class="col-md-3 preloader9" style="height: 200px !important">
                 <img style="height:100%;" data-src="https://images.pexels.com/photos/33045/lion-wild-africa-african.jpg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
             </div>
-            <div class="col-md-3 preloader" style="height: 200px">
+            <div class="col-md-3 preloader10" style="height: 200px !important">
                 <img style="height:100%;" data-src="https://images.pexels.com/photos/1590511/pexels-photo-1590511.jpeg?auto=compress&cs=tinysrgb&w=800" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" class="img-fluid lazy" alt="some text">
             </div>
         </div>

@@ -32,7 +32,16 @@ var observer = new IntersectionObserver((elements, observer) => {
             console.log("We are here!")
         }
         function lazyImageLoad(e) {                          // If image is loaded, this function will be called.
-            img.parentNode.classList.remove('preloader');
+            img.parentNode.classList.remove('preloader1');
+            img.parentNode.classList.remove('preloader2');
+            img.parentNode.classList.remove('preloader3');
+            img.parentNode.classList.remove('preloader4');
+            img.parentNode.classList.remove('preloader5');
+            img.parentNode.classList.remove('preloader6');
+            img.parentNode.classList.remove('preloader7');
+            img.parentNode.classList.remove('preloader8');
+            img.parentNode.classList.remove('preloader9');
+            img.parentNode.classList.remove('preloader10');
             img.classList.add('animate-img');
             img.removeAttribute('data-src');
         }

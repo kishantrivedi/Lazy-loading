@@ -1,0 +1,283 @@
+.animate-img {
+    animation: example 1.5s;
+}
+@keyframes example {
+    from {transform: translatey(+10%); opacity: 0;}
+    to {transform: translatey(0%); opacity: 1;}
+}
+
+.preloader1,.preloader2,.preloader3,.preloader4,.preloader5,.preloader6,.preloader7,.preloader8,.preloader9,.preloader10, .ImageError {
+    position: relative;
+}
+
+.preloader1::after {
+    content: "";
+    width: 50px; 
+    overflow: auto; 
+    position: absolute; 
+
+    top:50%;
+    left: 50%;
+    width: 15px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    animation: d5 1s infinite linear alternate;
+}
+
+@keyframes d5 {
+0%  {box-shadow: 20px 0 #000, -20px 0 #0002;background: #000 }
+33% {box-shadow: 20px 0 #000, -20px 0 #0002;background: #0002}
+66% {box-shadow: 20px 0 #0002,-20px 0 #000; background: #0002}
+100%{box-shadow: 20px 0 #0002,-20px 0 #000; background: #000 }
+}
+
+.ImageError::after {
+    content: "Error loading image";
+    overflow: auto; 
+    position: absolute; 
+    height: 70px;
+    top:50%;
+    left: 45%;
+}
+
+.preloader2::after {
+    content: "";
+    width: 50px; 
+    overflow: auto; 
+    position: absolute; 
+
+    top:50%;
+    left: 50%;
+    --c1: #F77825;
+    --c2: #D3CE3D;
+    --c3: #60B99A;
+    --c4: #554236;
+    aspect-ratio: 8/5;
+    --_g: no-repeat radial-gradient(#000 68%,#0000 71%);
+    -webkit-mask: var(--_g),var(--_g),var(--_g);
+    -webkit-mask-size: 25% 40%;
+    background: 
+        conic-gradient(var(--c1) 50%,var(--c2) 0) no-repeat,
+        conic-gradient(var(--c3) 50%,var(--c4) 0) no-repeat;
+    background-size: 200% 50%;
+    animation: 
+        back 4s infinite steps(1),
+        load 2s infinite;
+}
+
+@keyframes load {
+    0%    {-webkit-mask-position: 0% 0%  ,50% 0%  ,100% 0%  }
+    16.67%{-webkit-mask-position: 0% 100%,50% 0%  ,100% 0%  }
+    33.33%{-webkit-mask-position: 0% 100%,50% 100%,100% 0%  }
+    50%   {-webkit-mask-position: 0% 100%,50% 100%,100% 100%}
+    66.67%{-webkit-mask-position: 0% 0%  ,50% 100%,100% 100%}
+    83.33%{-webkit-mask-position: 0% 0%  ,50% 0%  ,100% 100%}
+    100%  {-webkit-mask-position: 0% 0%  ,50% 0%  ,100% 0%  }
+}
+
+@keyframes back {
+    0%,
+    100%{background-position: 0%   0%,0%   100%}
+    25% {background-position: 100% 0%,0%   100%}
+    50% {background-position: 100% 0%,100% 100%}
+    75% {background-position: 0%   0%,100% 100%}
+}
+
+.preloader3::after {
+    content: "";
+    overflow: auto; 
+    position: absolute; 
+
+    top:50%;
+    left: 50%;
+    width: 35px;
+    aspect-ratio: 1;
+    --_g: no-repeat radial-gradient(circle closest-side,#000 90%,#0000);
+    background: 
+        var(--_g) 0    0,
+        var(--_g) 0    100%,
+        var(--_g) 100% 100%;
+    background-size: 40% 40%;
+    animation:d1 1s infinite linear;
+}
+
+@keyframes d1 {
+    25% {background-position:100% 0   ,0 100%,100% 100%}
+    50% {background-position:100% 0   ,0 0   ,100% 100%}
+    75% {background-position:100% 0   ,0 0   ,0    100%}
+    100%{background-position:100% 100%,0 0   ,0    100%}
+}
+
+.preloader4::after {
+    content: "";
+    width: 50px; 
+    overflow: auto; 
+    position: absolute; 
+
+    top:50%;
+    left: 50%;
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    padding: 6px;
+    background:
+        conic-gradient(from 135deg at top,currentColor 90deg, #0000 0) 0 calc(50% - 4px)/17px 8.5px,
+        radial-gradient(farthest-side at bottom left,#0000 calc(100% - 6px),currentColor calc(100% - 5px) 99%,#0000) top right/50%  50% content-box content-box,
+        radial-gradient(farthest-side at top        ,#0000 calc(100% - 6px),currentColor calc(100% - 5px) 99%,#0000) bottom   /100% 50% content-box content-box;
+    background-repeat: no-repeat;
+    animation: s1 1s infinite linear;
+}
+
+@keyframes s1{ 
+    100%{transform: rotate(1turn)}
+}
+
+.preloader5::after {
+    content: "";
+    width: 50px; 
+    overflow: auto; 
+    position: absolute; 
+
+    top:50%;
+    left: 50%;
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: 
+        radial-gradient(farthest-side,#ffa516 94%,#0000) top/8px 8px no-repeat,
+        conic-gradient(#0000 30%,#ffa516);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+    animation: s3 1s infinite linear;
+}
+
+
+@keyframes s3{ 
+    100%{transform: rotate(1turn)}
+}
+
+.preloader6::after {
+    content: "";
+    width: 50px; 
+    overflow: auto; 
+    position: absolute; 
+    top:50%;
+    left: 50%;
+
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 4px solid #b30738;
+    animation:
+    s10-1 0.8s infinite linear alternate,
+    s10-2 1.6s infinite linear;
+}
+
+    
+       
+@keyframes s10-1{
+   0%    {clip-path: polygon(50% 50%,0       0,  50%   0%,  50%    0%, 50%    0%, 50%    0%, 50%    0% )}
+   12.5% {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100%   0%, 100%   0%, 100%   0% )}
+   25%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 100% 100%, 100% 100% )}
+   50%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+   62.5% {clip-path: polygon(50% 50%,100%    0, 100%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+   75%   {clip-path: polygon(50% 50%,100% 100%, 100% 100%,  100% 100%, 100% 100%, 50%  100%, 0%   100% )}
+   100%  {clip-path: polygon(50% 50%,50%  100%,  50% 100%,   50% 100%,  50% 100%, 50%  100%, 0%   100% )}
+}
+@keyframes s10-2{ 
+  0%    {transform:scaleY(1)  rotate(0deg)}
+  49.99%{transform:scaleY(1)  rotate(135deg)}
+  50%   {transform:scaleY(-1) rotate(0deg)}
+  100%  {transform:scaleY(-1) rotate(-135deg)}
+}
+
+.preloader7::after {
+    content: "";
+    width: 50px; 
+    overflow: auto; 
+    position: absolute; 
+    top:50%;
+    left: 50%;
+    
+    --d:22px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    color: #b30738;
+    box-shadow: 
+        calc(1*var(--d))      calc(0*var(--d))     0 0,
+        calc(0.707*var(--d))  calc(0.707*var(--d)) 0 1px,
+        calc(0*var(--d))      calc(1*var(--d))     0 1.5px,
+        calc(-0.707*var(--d)) calc(0.707*var(--d)) 0 2.5px,
+        calc(-1*var(--d))     calc(0*var(--d))     0 3px,
+        calc(-0.707*var(--d)) calc(-0.707*var(--d))0 3.5px,
+        calc(0*var(--d))      calc(-1*var(--d))    0 3.8px;
+    animation: s7 1s infinite steps(8);
+}
+
+
+@keyframes s7 {
+    100% {transform: rotate(1turn)}
+}
+
+.preloader8::after {
+    content: "";
+    width: 50px; 
+    overflow: auto; 
+    position: absolute; 
+    top:50%;
+    left: 50%;
+    
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid lightblue;
+    border-right-color: #b30738;
+    animation: s2 1s infinite linear;
+}
+@keyframes s2 {
+    to{transform: rotate(1turn)}
+}
+
+.preloader9::after {
+    content: "";
+    width: 50px; 
+    overflow: auto; 
+    position: absolute; 
+    top:50%;
+    left: 50%;
+    
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    padding: 3px;
+    background: 
+        radial-gradient(farthest-side,#b30738 95%,#0000) 50% 0/12px 12px no-repeat,
+        radial-gradient(farthest-side,#0000 calc(100% - 5px),#b30738 calc(100% - 4px)) content-box;
+    animation: s6 1.3s infinite ;
+}
+
+@keyframes s6 {to{transform: rotate(1turn)}}
+
+.preloader10::after {
+    content: "";
+    width: 50px; 
+    overflow: auto; 
+    position: absolute; 
+    top:50%;
+    left: 50%;
+    
+    width: 50px;
+    aspect-ratio: 1;
+    --_c: radial-gradient(farthest-side,#b30738 92%,#0000);
+    background: 
+        var(--_c) top,
+        var(--_c) left,
+        var(--_c) right,
+        var(--_c) bottom;
+    background-size: 12px 12px;
+    background-repeat: no-repeat;
+    animation: s7 1s infinite;
+}
+
+
+@keyframes s7 {to{transform: rotate(.5turn)}}
